@@ -1,3 +1,3 @@
 # Genome Dark Matter
 
-This online folder is to record the progress of our team. We can share relevant papers to our topic and leave comments and ideas. 
+我们可以在GitHub上共享文献，想法和代码，并记录我们的进展。
