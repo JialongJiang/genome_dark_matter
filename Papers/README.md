@@ -1,3 +1,3 @@
-# Share papers related to this topic!
+# 分享我们发现的文献！
 
-We can share the papers we have read to this folder. Comments about the papers can be shared at the markdown file *comments.md* The pdf file of these papers can be uploaded to this folder. Please name the pdf file by the name of the paper. 
+我们可以把发现的和我们的课题相关或有趣的文献上传到这个文件夹中。文献请按照题目命名，我们的想法可以记录在*comments.md*文件中。
