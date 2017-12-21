@@ -10,6 +10,7 @@ import warnings
 
 
 class VarArray:
+    """The class for the matrix of array with different length."""
     def __init__(self, num, leng, leng_max):
         arr_ini = np.random.randint(0, 2, size=(num, leng))
         self.array = zero2minus(arr_ini)
@@ -42,10 +43,12 @@ class VarArray:
         self.update(rep_arr)
     
 class EnviList(VarArray):
+    """The class of environment."""
     def __init__(self, num, leng_ini, leng_max):
         VarArray.__init__(self, num, leng_ini, leng_max)
     
     def enlong(self, rate):
+        """Environment can be added one element either to head or tail."""
         num, _ = self.array.shape
         num_sel = np.random.binomial(num, rate)
         if num_sel:
@@ -70,10 +73,15 @@ class EnviList(VarArray):
         return new_arr
                        
 class PopList(VarArray):
+    """The class for population."""
     def __init__(self, num, leng_ini, leng_max):
         VarArray.__init__(self, num, leng_ini, leng_max)
         
     def trans(self, freq, tr_leng):
+        """A random sequence can be inserted to random position of array, or 
+        deleted from random positon. The average insertion and deletion should 
+        be the same.
+        """
         self.tr_leng = tr_leng
         num, _ = self.array.shape
         num_add = np.random.binomial(num, freq)
@@ -89,6 +97,7 @@ class PopList(VarArray):
             self.renew_array(new_arr, np.array(sel_del))
     
     def pop_change(self, array, mode='add'):
+        """Implementation of insertion or deletion of random sequences."""
         num, _ = array.shape
         all_leng = get_length(array)
         if mode == 'add':
@@ -144,6 +153,7 @@ def get_length(arr):
     return (np.max(eff, axis=1) + 1).astype(int)
 
 def reproduce(pop, envir, fun):
+    """Using the score function to get the offspring for every generation."""
     num_pop, leng_m = pop.shape
     leng = get_length(pop)
     score = np.sum(fun(pop, envir), axis=0)
