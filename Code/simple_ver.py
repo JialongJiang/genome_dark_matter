@@ -47,8 +47,10 @@ class EnviList(VarArray):
     def __init__(self, num, leng_ini, leng_max):
         VarArray.__init__(self, num, leng_ini, leng_max)
     
-    def enlong(self, rate):
-        """Environment can be added one element either to head or tail."""
+    def enlong(self, rate):        
+        """Environment can be added one element either to head or tail.
+        The length should not change.
+        """
         num, _ = self.array.shape
         num_sel = np.random.binomial(num, rate)
         if num_sel:
